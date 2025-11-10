@@ -1,92 +1,92 @@
-import { CSSProperties, HTMLInputTypeAttribute } from "react";
+import type { CSSProperties, HTMLInputTypeAttribute } from "react";
 
 // ========== VALIDATIONS ==========
-export interface Validation {
+export type Validation = {
   object: "length" | "regex" | "text" | "number";
   constraint: string;
   errorText: string;
-}
+};
 
-export interface LongAnswerValidation extends Validation {
+export type LongAnswerValidation = Validation & {
   object: "text" | "number";
-}
+};
 
 // ========== FORMFIELDS ==========
-export interface FormShortAnswer {
+export type FormShortAnswer = {
   type: "short_answer";
   inputType?: HTMLInputTypeAttribute;
   validation?: Validation;
-}
+};
 
-export interface FromLongAnswer {
+export type FromLongAnswer = {
   type: "long_answer";
   validation?: LongAnswerValidation;
-}
+};
 
-export interface FormMultipleChoice {
+export type FormMultipleChoice = {
   type: "multiple_choice";
   options?: UserInputOption[];
   other?: boolean;
   shuffle?: boolean;
-}
+};
 
-export interface FormCheckbox {
+export type FormCheckbox = {
   type: "checkbox";
   options?: UserInputOption[];
   shuffle?: boolean;
-}
+};
 
-export interface FormDropdown {
+export type FormDropdown = {
   type: "dropdown";
   options?: Option[];
   shuffle?: boolean;
-}
+};
 
-export interface FormLinearScale {
+export type FormLinearScale = {
   type: "linear_scale";
   high?: string;
   low?: string;
   start?: 1 | 0;
   count?: number;
-}
+};
 
-export interface FormRating {
+export type FormRating = {
   type: "rating";
   icon?: "star" | "heart" | "like";
   stroke?: CSSProperties["color"];
   fill?: CSSProperties["color"];
   count?: number;
-}
+};
 
-export interface FormMultipleChoiceGrid {
+export type FormMultipleChoiceGrid = {
   type: "multiple_choice_grid";
   table?: GridBaseObject;
   shuffle?: boolean;
   limitToOnePerColumn?: boolean;
-}
+};
 
-export interface FormCheckboxGrid {
+export type FormCheckboxGrid = {
   type: "checkbox_grid";
   table?: GridBaseObject;
   shuffle?: boolean;
   limitToOnePerColumn?: boolean;
-}
+};
 
-export interface FormDate {
+export type FormDate = {
   type: "date";
   includeTime?: boolean;
-}
+};
 
-export interface FormTime {
+export type FormTime = {
   type: "time";
   kind: "time" | "duration";
-}
+};
 
-export interface FormFileUpload {
+export type FormFileUpload = {
   type: "file_upload";
   acceptedFileTypes?: string[];
   maxFileSize?: number; // in bytes
-}
+};
 
 // ========= FORM TYPES ==========
 export type OptionFields = "multiple_choice" | "checkbox" | "dropdown";
@@ -99,16 +99,16 @@ export type Option = {
 
 export type UserInputOption = Option & { other?: boolean };
 
-export interface GridBaseObject {
+export type GridBaseObject = {
   rows: Option[];
   columns: Option[];
-}
+};
 
 // ========== FORM ==========
-export interface FormHeader {
+export type FormHeader = {
   title: string;
   description?: string;
-}
+};
 
 export type FormConfig =
   | FormShortAnswer
@@ -130,7 +130,7 @@ export type OptionAnswer = Record<string, boolean>;
 
 export type FormAnswer = string | OptionAnswer;
 
-export interface FormField {
+export type FormField = {
   id: string;
   title?: string;
   description?: string;
@@ -138,7 +138,7 @@ export interface FormField {
   imageUrl?: string;
   config: FormConfig;
   answer?: FormAnswer;
-}
+};
 
 export type Section = {
   id: string;
@@ -146,9 +146,9 @@ export type Section = {
   fieldOrder: string[];
 };
 
-export interface FormObj {
+export type FormObj = {
   id: string;
   header: FormHeader;
   sections: Record<string, Section>;
   fields: Record<string, FormField>;
-}
+};

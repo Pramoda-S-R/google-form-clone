@@ -1,5 +1,5 @@
 import { StateCreator } from "zustand";
-import { FormHeader } from "../types";
+import { FormHeader } from "@/components/form/types";
 
 export interface FormHeaderSlice {
   header: FormHeader;

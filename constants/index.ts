@@ -1,5 +1,16 @@
-import { FormField, FormObj } from "@/types";
+import { FormField, FormObj, Section } from "@/components/form/types";
 import { generateId } from "@/utils";
+
+export const getDefaultSection = (): Record<string, Section> => {
+  const id = generateId();
+  return {
+    [id]: {
+      id,
+      title: "Section 1",
+      fieldOrder: [],
+    },
+  };
+};
 
 const shortAnswer: FormField = {
   id: "0",

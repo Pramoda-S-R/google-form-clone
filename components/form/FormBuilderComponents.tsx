@@ -34,7 +34,7 @@ import {
 import ColorPicker from "../ui/ColorPicker";
 import { DraggableAttributes } from "@dnd-kit/core";
 import { SyntheticListenerMap } from "@dnd-kit/core/dist/hooks/utilities";
-import { FormStoreHook } from "./store";
+import { FormStoreHook } from "../../app/store";
 import { createDefaultConfig } from "@/constants";
 
 // Prop Types
